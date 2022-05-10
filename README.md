@@ -13,7 +13,7 @@ Android Emulator is used to run Android on the PC. Essentially, it's a virtual m
 > make -j32
 ```
 
-It has to be noticed that **sdk_phone_x86_64** is not in the available target list of "lunch". ("lunch" is a function defined in build/envsetup.sh) However, you can still use "sdk_phone_x86_64" as the argument of lunch.
+It has to be noticed that **sdk_phone_x86_64** is not in the available target list of `lunch`. (`lunch` is a function defined in build/envsetup.sh) However, you can still use `sdk_phone_x86_64` as the argument of `lunch`.
 
 After your AOSP build system finish its build process, you'll get "out" directory under your "AOSP Home Path" and have a view of:
 
@@ -164,8 +164,8 @@ And then, you can use "emulator" in this folder to run, instead of emulator unde
 
 Actually, there is 3 modes in emulator.
 
-* Android SDK mode: you can only download Android SDK to use emulator, instead of the whole AOSP. In this scene, you need to create a virtual device by avdmanager(in cmdline-tools). You can get more information by emulator -help-sdk-images.
-* Android build system mode (I use): define ANDROID_PRODUCT_OUT and ANDROID_BUILD_TOP. This need you to fetch the whole AOSP. You can get more information by emulator -help-build-images.
+* Android SDK mode: you can only download Android SDK to use emulator, instead of the whole AOSP. In this scene, you need to create a virtual device by avdmanager(in cmdline-tools). You can get more information by emulator `-help-sdk-images`.
+* Android build system mode (I use): define `ANDROID_PRODUCT_OUT` and `ANDROID_BUILD_TOP`. This need you to fetch the whole AOSP. You can get more information by emulator `-help-build-images`.
 * Without Android SDK and Android build system: acctually, I failed to use this mode to run emulator correctly, and this mode, I doubt, whether it is usable or not.
 
 So use the following command:
@@ -174,6 +174,41 @@ So use the following command:
 # <your-path> means the path you want to share files about emulator.
 > export ANDROID_BUILD_TOP=<your-path>
 > export ANDROID_PRODUCT_OUT=<your-path>/out/target/product/emulator_x86_64/
+```
+
+Note that the current structure is:
+
+```shell
+. ("." means <your-path> above)
+├── out
+│   └── target
+│       └── product
+│           └── emulator_x86_64
+│               ├── advancedFeatures.ini
+│               ├── build.avd
+│               ├── config.ini
+│               ├── encryptionkey.img
+│               ├── hardware-qemu.ini
+│               ├── initrd
+│               ├── kernel-ranchu
+│               ├── ramdisk.img
+│               ├── ramdisk-qemu.img
+│               ├── system
+│               ├── system.img
+│               ├── system-qemu.img
+│               ├── userdata.img
+│               ├── userdata-qemu.img
+│               ├── vendor.img
+│               └── VerifiedBootParams.textproto
+│
+│
+└── prebuilts (optional if you use emulator in AOSP/prebuilts)
+    └── android-emulator
+        └── linux-x86_64
+            ├── emulator
+            ├── lib
+            ├── lib64
+            └── qemu
 ```
 
 ## 5. Run!
@@ -191,4 +226,12 @@ You can use adb to check device status and execute in shell:
 > adb root
 > adb shell   # use shell
 > adb logcat  # to check log output when emulator running
+```
+
+If you want to check whether you extract correctly, output is available [here](https://github.com/skyleaworlder/How-to-share-emulator-from-AOSP/build-system-mode-with-android-sdk-emulator.log).
+
+```shell
+# these env used in output example
+> export ANDROID_PRODUCT_OUT=/home/user/aosp/out/target/product/emulator_x86_64/
+> export ANDROID_BUILD_TOP=/home/user/aosp/
 ```
