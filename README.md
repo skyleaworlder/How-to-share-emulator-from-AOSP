@@ -4,7 +4,7 @@ Android Emulator is used to run Android on the PC. Essentially, it's a virtual m
 
 ## 1. Build AOSP emulator
 
-**NOTICE: I use android_12.0.0_r1 version of AOSP**.
+**NOTICE: I use android_12.0.0_r1 version of AOSP and Android SDK 31**.
 
 ```shell
 # at your AOSP Home Path
@@ -228,7 +228,7 @@ You can use adb to check device status and execute in shell:
 > adb logcat  # to check log output when emulator running
 ```
 
-If you want to check whether you extract correctly, output is available [here](https://github.com/skyleaworlder/How-to-share-emulator-from-AOSP/build-system-mode-with-android-sdk-emulator.log).
+If you want to check whether you extract correctly, output is available [here](https://github.com/skyleaworlder/How-to-share-emulator-from-AOSP/blob/master/build-system-mode-with-android-sdk-emulator.log).
 
 ```shell
 # these env used in output example
