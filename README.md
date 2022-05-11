@@ -2,6 +2,25 @@
 
 Android Emulator is used to run Android on the PC. Essentially, it's a virtual machine that you can get from building AOSP.
 
+## 0. QuickStart
+
+This repository provides a [script](https://github.com/skyleaworlder/How-to-share-emulator-from-AOSP/blob/master/prepare_extract.sh) to help copy essential files to given directories. This script can be used by:
+
+```shell
+# 1st argument: source directory of the whole AOSP
+# 2nd argument: target directory where extracted files are stored
+# 3rd argument: optional. -ae means use emulator in aosp/prebuilts. Without this, you'll use emulator in android sdk (Need define ANDROID_HOME).
+> source ./prepare_extract.sh ./origin-aosp/ ./path-you-extract -ae
+```
+
+Then you can use emulator:
+
+```shell
+> emulator -no-window -verbose
+```
+
+What happens in [script](https://github.com/skyleaworlder/How-to-share-emulator-from-AOSP/blob/master/prepare_extract.sh) is discussed from Sec.1 to Sec.5, if you'd like to know more.
+
 ## 1. Build AOSP emulator
 
 **NOTICE: I use android_12.0.0_r1 version of AOSP and Android SDK 31**.
