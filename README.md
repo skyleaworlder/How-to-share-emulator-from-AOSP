@@ -4,6 +4,8 @@ Android Emulator is used to run Android on the PC. Essentially, it's a virtual m
 
 ## 0. QuickStart
 
+**NOTICE: The whole AOSP is all you need about the following instructions in this Section. If you don't have AOSP, you can't "share" emulator with others**.
+
 This repository provides a [script](https://github.com/skyleaworlder/How-to-share-emulator-from-AOSP/blob/master/prepare_extract.sh) to help copy essential files to given directories. This script can be used by:
 
 ```shell
@@ -19,7 +21,7 @@ Then you can use emulator:
 > emulator -no-window -verbose
 ```
 
-What happens in [script](https://github.com/skyleaworlder/How-to-share-emulator-from-AOSP/blob/master/prepare_extract.sh) is discussed from Sec.1 to Sec.5, if you'd like to know more.
+What happens in [script](https://github.com/skyleaworlder/How-to-share-emulator-from-AOSP/blob/master/prepare_extract.sh) is discussed from [Sec.1](#1-build-aosp-emulator) to [Sec.5](#5-run), if you'd like to know more.
 
 ## 1. Build AOSP emulator
 
@@ -168,7 +170,7 @@ It's necessary to share all the files mentioned above.
 
 ## 3. (Optional) Extract essential files under prebuilts/
 
-You can move to Sec.4 if you don't have the whole AOSP on your machine and have an executable emulator.
+You can move to [Sec.4](#4-set-environment-variables) if you want to use emulator in Android SDK, instead of emulator in AOSP prebuilts. Therefore, this section is optional.
 
 In AOSP, directory prebuilts contains some lib, exe and tools that have already built. There is also an emulator in prebuilts (e.g. prebuilts/android-emulator/linux-x86_64/emulator). In addition, emulator in prebuilts need some other files to enable its work. These following files is important:
 
@@ -247,7 +249,7 @@ You can use adb to check device status and execute in shell:
 > adb logcat  # to check log output when emulator running
 ```
 
-If you want to check whether you extract correctly, output is available [here](https://github.com/skyleaworlder/How-to-share-emulator-from-AOSP/blob/master/build-system-mode-with-android-sdk-emulator.log).
+If you want to check whether you extract correctly, output is available [here](https://github.com/skyleaworlder/How-to-share-emulator-from-AOSP/blob/master/build-system-mode-with-android-sdk-emulator.log). Environment variables are set as:
 
 ```shell
 # these env used in output example
