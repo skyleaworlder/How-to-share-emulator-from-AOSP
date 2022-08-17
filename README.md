@@ -9,10 +9,10 @@ Android Emulator is used to run Android on the PC. Essentially, it's a virtual m
 This repository provides a [script](https://github.com/skyleaworlder/How-to-share-emulator-from-AOSP/blob/master/prepare_extract.sh) to help copy essential files to given directories. This script can be used by:
 
 ```shell
-# 1st argument: source directory of the whole AOSP
-# 2nd argument: target directory where extracted files are stored
+# 1st argument: source directory of the whole AOSP. (please use absolute path)
+# 2nd argument: target directory where extracted files are stored. (please use absolute path)
 # 3rd argument: optional. -ae means use emulator in aosp/prebuilts. Without this, you'll use emulator in android sdk (Need define ANDROID_HOME).
-> source ./prepare_extract.sh ./origin-aosp/ ./path-you-extract -ae
+> source ./prepare_extract.sh ~/origin-aosp/ ~/path-you-extract -ae
 ```
 
 Then you can use emulator:
